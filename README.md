@@ -24,8 +24,17 @@ Below is a screenshot showing the data flow created for the project. the project
     ```
 4. What are the pros and cons of parametrizing a dataset in Azure Data Factory pipeline’s activity?
 
-    >
+    > The pros of paratetrizing a dataset in ADF is that it can eliminate the duplication of work, and allow for easier management of datasets. By parametrizing a dataset, you can make your pipelines less verbose, as some fo the important information is stored in the parameter, and not in the title.
 
 5. What are the different supported file formats and compression codecs in Azure Data Factory? When will you use a Parquet file over an ORC file? Why would you choose an AVRO file format over a Parquet file format?
 
-    >
+    > The supported file formats for the copy activity are as follows: delimited data, Excel format, XML format, JSON format, Binary format, Avro format, ORC format, and Parquet format. Supported compression codecs vary based on the file format being used, the supported codecs for Avro, ORC, and Parquet are shown in the table below. I would use a Parquet format over an ORC format if I were ingesting a file already in this format, or sending data externally as it is a more widely used format than ORC. I would also use Parquet format for analytical workloads that require complex querying. I would use AVRO if I were in need of an evolving schema, since schema data is stored with the data, changes to the schema are easily recognized, and older files are still able to be interperated by applications. [^1]
+
+[^1]: [Choosing the Right Big Data File Format: Avro vs. Parquet vs. ORC](https://blog.det.life/choosing-the-right-big-data-file-format-avro-vs-parquet-vs-orc-c868ffbe5a4e)
+
+
+    |  | Supported Formats |
+    |---|---|
+    | Avro | "none", "deflate" and "snappy" |
+    | Parquet | "none", "gzip", "snappy" and "lzo" |
+    | ORC | "none", "zlib", "snappy" and "lzo" |
